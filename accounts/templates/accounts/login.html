@@ -1,0 +1,73 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login/Signup</title>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	</head>
+	<body>
+		<div id='Encloser'>
+			<div id='signup'>
+				<h1 class='heading'>Create Account</h1>
+				<form action="{% url 'post' %}" method="post">
+					{% csrf_token %}
+					<label class="label" for="username"><i class="fas fa-user"></i></label><input id="username" name="username" class="input" placeholder="Username" type=text>
+					<br>
+					<br>
+					<label class="label" for="Email"><i class="fas fa-envelope"></i></label><input id="Email" name="email" class="input" placeholder="Email" type=email>
+					<br>
+					<br>
+					<label class="label" for="password"><i class="fas fa-key"></i></label><input class="input" name="password1" id="password" placeholder="Password" type=password>
+					<br>
+					<br>
+					<label class="label" for="Confirm_password"><i class="fas fa-key"></i></label><input class="input" id="Confirm_password" name="password2" placeholder="Confirm password" type="password">
+					<br>
+					<br>
+					<button id="signupButton" type="submit" >Signup</button>
+				</form>
+				<br>
+				<p>Already have an account, <span onclick="second()">Click here</span></p>
+			</div>
+			<div id='inner'>
+
+			</div>
+			<div id='left'>
+				<h2>Hello again!</h2>
+				<h3>Login and start finding the perfect match for you</h3>
+			</div>
+			<div id='right'>
+				<h2>Hi!</h2>
+				<br>
+				<h3>Sign up and meet millions of others just like you</h3>
+			</div>
+			<div id='login'>
+				<h1 class='heading'>Login in to Shaadi</h1>
+				<form action="{% url 'post2' %}" method="POST">
+					{% csrf_token %}
+					<br>
+					<br>
+					<br>
+					<label class="label" for="username2"><i class="fas fa-user"></i></label><input id="username2" name="username2" class="input" placeholder="Username" type=text>
+					<br>
+					<br>
+					<label class="label" for="password2"><i class="fas fa-key"></i></label><input class="input" id="password2" name="password2" placeholder="Password" type=password>
+					<br>
+					<br>
+					<button id="loginButton" type=submit>Login</button>
+					<br>
+					<br>
+				</form>
+					<p>Don't have an account, <span onclick="first()">Click here</span></p>
+					  {% if user.is_authenticated %}
+  							<p>Welcome, {{ user.username }} !</p>
+					  {% else %}
+					<p><a title="Google" class="socialaccount_provider google"
+					  href="/accounts/google/login/?process=login">Google</a></p>
+					  {% endif %}
+			</div>
+		</div>
+	</body>
+	<script src="{% static 'js/login.js' %}"></script>
+</html>

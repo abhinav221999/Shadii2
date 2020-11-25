@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+	<head>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="{% static 'css/info_form.css' %}">
+		<title></title>
+	</head>
+	<body id="body">
+		<div id="form-container">
+			<div id="profile_head">
+				<i class="fas fa-user"></i>
+			</div>
+			<h1 id="heading">Please enter your profile details</h1>
+			<form action="{% url 'info' %}" method="post">
+                {% csrf_token %}
+				<input type="text" id="first_name" name="first_name" placeholder="  First name" class="custom_input">
+				<input type="text" id="last_name" name="last_name" placeholder="  Last name" class="custom_input">
+				<br>
+				<select id="gender" class="custom_input" name="gender">
+					<option value="" disabled selected style="color: grey"> &nbspSelect your gender</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+					<option value="other">other</option>
+				</select>
+				<select id="religion" class="custom_input" name="religion">
+					<option value="" disabled selected style="color: grey"> &nbspReligion</option>
+					<option value="Hindu">Hindu</option>
+					<option value="Muslim">Muslim</option>
+					<option value="Sikh">Sikh</option>
+					<option value="Parsi">Parsi</option>
+					<option value="Christian">Christian</option>
+					<option value="Jain">Jain</option>
+					<option value="Jewish">Jewish</option>
+					<option value="Buddhist">Buddhist</option>
+					<option value="Other">Other</option>
+				</select>
+				<br>
+				<input type="text" placeholder="  Mother tongue" name="language"class="custom_input">
+				<input type="text" placeholder="  Date of birth" name="dob" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" class="custom_input">
+				<br>
+				<div class="submit_button">
+					<button type="submit">Submit</button>
+				</div>
+			</form>
+		</div>
+		<script src="{% static 'js/info_form.js.' %}"></script>
+	</body>
+</html>
