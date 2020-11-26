@@ -1,0 +1,166 @@
+html{
+	margin: 0px;
+	height: 100%;
+	padding: 0px;
+}
+body{
+	font-family: verdana;
+	margin: 0px;
+	background-image: linear-gradient(225deg, rgb(58,173, 161) 0 39%, rgb(76, 193, 150) 0 61%);
+}
+h1{
+	font-size: 40px;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+}
+#form_container{
+	height: 500px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#inner{
+	display: flex;
+	flex: 1 0 auto;
+	overflow: hidden;
+}
+#loading{
+	height: 4px;
+	border-radius: 2px;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+#bar{
+	height: 4px;
+	width: 400px;
+	border-radius: 2px;
+	transform: translateX(-200px);
+	transition: 0s;
+	background-color: white;
+}
+#first{
+	position: relative;
+	border-radius: 10px;
+	background-color: white;
+	width: 600px;
+	min-width: 600px;
+	height: 400px;
+}
+#second{
+	position: relative;
+	border-radius: 10px;
+	background-color: white;
+	width: 600px;
+	min-width: 600px;
+}
+input{
+	font-family: verdana;
+	font-size: 20px;
+	line-height: 40px;
+	color: white;
+	border: none;
+	width: 250px;
+	height: 40px;
+	border-radius: 5px;
+	margin-top: 50px;
+	margin-left: 30px;
+	background-color: rgb(200, 200, 200);
+}
+.custom_input{
+	color: grey;
+	font-family: verdana;
+	font-size: 20px;
+	line-height: 40px;
+	border: none;
+	width: 255px;
+	height: 40px;
+	border-radius: 5px;
+	margin-top: 50px;
+	margin-left: 30px;
+	background-color: rgb(200, 200, 200);
+}
+button{
+	font-family: verdana;
+	font-size: 20px;
+	line-height: 40px;
+	font-weight: bolder;
+	color: white;
+	background: linear-gradient(45deg, rgb(58,173, 161) 0 50%, rgb(76, 193, 150) 0 50%);
+	border: none;
+	border-radius: 20px;
+	height: 40px;
+	width: 150px;
+}
+#next{
+	position:absolute;
+	bottom: 20px;
+	right: 30px;
+}
+#previous{
+	position: absolute;
+	bottom: 20px;
+	left: 30px;
+}
+#submit{
+	position: absolute;
+	bottom: 20px;
+	right: 30px;
+}
+#interest-list{
+	width: 210px;
+	height: 40px;
+	margin: 50px 0px 0px 30px;
+	border-radius: 5px 0px 0px 5px;
+	background-color: rgb(200, 200, 200);
+}
+#special{
+	font-size: 25px;
+	color: white;
+	width: 40px;
+	height: 42px;
+	border-radius: 0px 5px 5px 0px;
+	background-color: rgb(200, 200 ,200);
+	margin-top: 50px;
+	text-align: center;
+	line-height: 42px;
+}
+#interests{
+	display: flex;
+	flex-wrap: wrap;
+}
+#special:hover{
+	cursor: pointer;
+	font-size: 30px;
+}
+.interestElements{
+	font-size: 20px;
+	font-weight: normal;
+	padding: 0px 5px 0px 5px;
+	color: white;
+	height: 42px;
+	border-radius: 5px;
+	background: linear-gradient(45deg, rgb(58,173, 161) 0 50%, rgb(76, 193, 150) 0 50%);
+	margin-top: 50px;
+	margin-left: 10px;
+	text-align: left;
+	line-height: 42px;
+}
+.interestButton{
+	font-size: 20px;
+	font-weight: normal;
+	padding: 0px 5px 0px 5px;
+	color: white;
+	height: 42px;
+	width: 40px;
+	border-radius: 5px;
+	margin-top: 50px;
+	text-align: right;
+	line-height: 42px;
+}
+
+.interestButton:hover{
+	font-size: 25px;
+}

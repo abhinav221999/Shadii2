@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="form.css" type="text/css">
+	</head>
+	<body>
+		<div id="form_container">
+			<h1>Please fill in your details</h1>
+			<div id="loading">
+				<div id="bar"></div>
+			</div>
+			<br>
+			<form>
+				<div id="inner">
+					<div id="first">
+						<input type="text" id="firstname" name="firstname" required placeholder="First name">
+						<input type="text" id="lastname" name="lastname" required placeholder="Last name">
+						<select id="gender" class="custom_input" required>
+							<option value="" disabled selected> Select your gender</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="other">other</option>
+						</select>
+						<select id="religion" class="custom_input" required>
+							<option value="" disabled selected style="color: grey"> Religion</option>
+							<option value="Hindu">Hindu</option>
+							<option value="Muslim">Muslim</option>
+							<option value="Sikh">Sikh</option>
+							<option value="Parsi">Parsi</option>
+							<option value="Christian">Christian</option>
+							<option value="Jain">Jain</option>
+							<option value="Jewish">Jewish</option>
+							<option value="Buddhist">Buddhist</option>
+							<option value="Other">Other</option>
+						</select>
+						<input type="text" id="motherTongue" placeholder="Mother tongue" required>
+						<input type="text" id="dob" placeholder="  Date of birth" required onfocus="(this.type = 'date')" onblur="(this.type = 'text')" class="custom_input">
+						<button id="next" type="button" onclick="next_form()"><i class="fas fa-arrow-circle-right"></i> Next</button>	
+					</div>
+					<div id="second">
+						<input type="number" placeholder=" Age preference" min="18" max="100">
+						<input type="text" placeholder=" Qualification">
+						<div id="interests">
+							<input type="text" id="interest-list" placeholder="Enter interests" maxlength="30">
+							<span id="special" onclick="add_interests()"><i class="fas fa-plus-circle"></i></span>
+						</div>
+						<button id="previous" type="button" onclick="previous_form()"><i class="fas fa-arrow-circle-left"></i> Previous</button>
+						<br>
+						<button id="submit"><i class="fas fa-check-circle"></i> Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script src="form.js"></script>
+	</body>
+</html>
