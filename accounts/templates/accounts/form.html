@@ -15,15 +15,15 @@
 			<form>
 				<div id="inner">
 					<div id="first">
-						<input type="text" id="firstname" name="firstname" required placeholder="First name">
-						<input type="text" id="lastname" name="lastname" required placeholder="Last name">
-						<select id="gender" class="custom_input" required>
+						<input class="post_inputs" type="text" id="firstname" name="firstname" required placeholder="First name">
+						<input class="post_inputs" type="text" id="lastname" name="lastname" required placeholder="Last name">
+						<select id="gender" name="gender" class="custom_input post_inputs" required>
 							<option value="" disabled selected> Select your gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
 							<option value="other">other</option>
 						</select>
-						<select id="religion" class="custom_input" required>
+						<select id="religion" name="religion" class="custom_input post_inputs" required>
 							<option value="" disabled selected style="color: grey"> Religion</option>
 							<option value="Hindu">Hindu</option>
 							<option value="Muslim">Muslim</option>
@@ -35,20 +35,20 @@
 							<option value="Buddhist">Buddhist</option>
 							<option value="Other">Other</option>
 						</select>
-						<input type="text" id="motherTongue" placeholder="Mother tongue" required>
-						<input type="text" id="dob" placeholder="  Date of birth" required onfocus="(this.type = 'date')" onblur="(this.type = 'text')" class="custom_input">
+						<input type="text" name="name" class="post_inputs" id="motherTongue" placeholder="Mother tongue" required>
+						<input type="text" name="dob" id="dob" class="post_inputs" placeholder="  Date of birth" required onfocus="(this.type = 'date')" onblur="(this.type = 'text')" class="custom_input">
 						<button id="next" type="button" onclick="next_form()"><i class="fas fa-arrow-circle-right"></i> Next</button>	
 					</div>
 					<div id="second">
-						<input type="number" placeholder=" Age preference" min="18" max="100">
-						<input type="text" placeholder=" Qualification">
+						<input type="number" name="age_preference" class="post_inputs" placeholder=" Age preference" min="18" max="100" required>
+						<input type="text" name="qualification" class="post_inputs" placeholder=" Qualification" required>
 						<div id="interests">
 							<input type="text" id="interest-list" placeholder="Enter interests" maxlength="30">
 							<span id="special" onclick="add_interests()"><i class="fas fa-plus-circle"></i></span>
 						</div>
 						<button id="previous" type="button" onclick="previous_form()"><i class="fas fa-arrow-circle-left"></i> Previous</button>
 						<br>
-						<button id="submit"><i class="fas fa-check-circle"></i> Submit</button>
+						<button id="submit" type="button" onclick="submit_func()"><i class="fas fa-check-circle"></i> Submit</button>
 					</div>
 				</div>
 			</form>

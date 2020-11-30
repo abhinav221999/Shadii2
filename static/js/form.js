@@ -1,6 +1,7 @@
 var container = document.getElementById("form_container");
 var first = document.getElementById("first");
 var second = document.getElementById("second");
+var interest_list = [];
 container.style.marginTop = "" + (window.innerHeight - container.offsetHeight)/2 +"px";
 first.style.marginLeft = "" + (container.offsetWidth - first.offsetWidth)/2 + "px";
 second.style.marginLeft = "" + (container.offsetWidth - second.offsetWidth)/2 +  "px";
@@ -51,8 +52,22 @@ function add_interests(){
 			button.parentElement.remove();
 		});
 		document.getElementById("interests").appendChild(wrapper);
+		interest_list.push(document.getElementById("interest-list").value);
+		console.log(interest_list);
 		document.getElementById("interest-list").value = "";
 	}
 	
 }
 
+function submit_func(){
+	var data = {};
+	var inputs = document.getElementByClassName("post_inputs");
+	for(var i = 0; i < inputs.length; i++){
+		data["" + inputs[i].name] = inputs[i].value;
+	}
+	data["interest_list"] = interest_list;
+	console.log(data);
+ 	var request = new XMLHttpRequest();
+ 	request.open("POST", "/info/", data);
+ 	//request.send(JSON.stringify(data));  configure the csrf token
+}
