@@ -69,5 +69,6 @@ function submit_func(){
 	console.log(data);
  	var request = new XMLHttpRequest();
  	request.open("POST", "/info/", data);
+ 	request.setRequestHeader("Content-Type", "applicatoin/json");
  	//request.send(JSON.stringify(data));  configure the csrf token
 }
