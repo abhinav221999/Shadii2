@@ -2,7 +2,7 @@ var navitems = document.getElementsByClassName("navitems");
 var special = document.getElementById("special");
 var mobile = document.getElementById("mobile_view");
 mobile.style.display = "none";
-if(window.innerWidth > 550){
+if(window.innerWidth > 550 && screen.width > 550){
 		for(var i = 0; i < navitems.length; i++){
 			navitems[i].style.display = "inline";
 		}
@@ -15,7 +15,7 @@ if(window.innerWidth > 550){
 		special.style.display = "inline";
 	}
 window.addEventListener("resize", ()=>{
-	if(window.innerWidth > 550){
+	if(window.innerWidth > 550 && screen.width > 550){
 		for(var i = 0; i < navitems.length; i++){
 			navitems[i].style.display = "inline";
 		}
