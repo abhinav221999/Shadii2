@@ -77,20 +77,18 @@ def info(request):
         print(request.user.email)
         temp = json.loads(request.body.decode('utf-8'))
         print(temp)
-        print('*******************')
-        # print(dir(request))
         customer = Profile()
-        customer.fname = request.POST['firstname']
-        customer.lname = request.POST['lastname']
-        customer.gender = request.POST['gender']
-        customer.religion = request.POST['religion']
-        customer.language = request.POST['language']
-        customer.date = parse_date(request.POST['dob'])
-        customer.agepref = int(request.POST['agepref'])
-        customer.qualification = request.POST['qualification']
+        customer.fname = temp['firstname']
+        customer.lname = temp['lastname']
+        customer.gender = temp['gender']
+        customer.religion = temp['religion']
+        customer.language = temp['language']
+        customer.date = parse_date(temp['dob'])
+        customer.agepref = int(temp['agepref'])
+        customer.qualification = temp['qualification']
         customer.user = request.user
         customer.save()
-        return HttpResponse('dfdssds')
+        return render(request, 'accounts/temp.html', {})
     return render(request, 'accounts/form.html')
 
 
