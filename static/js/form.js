@@ -61,14 +61,15 @@ function add_interests(){
 
 function submit_func(){
 	var data = {};
-	var inputs = document.getElementByClassName("post_inputs");
+	var inputs = document.getElementsByClassName("post_inputs");
 	for(var i = 0; i < inputs.length; i++){
 		data["" + inputs[i].name] = inputs[i].value;
 	}
 	data["interest_list"] = interest_list;
 	console.log(data);
  	var request = new XMLHttpRequest();
- 	request.open("POST", "/info/", data);
+ 	request.open("POST", "");
  	request.setRequestHeader("Content-Type", "applicatoin/json");
- 	//request.send(JSON.stringify(data));  configure the csrf token
+ 	request.setRequestHeader("X-CSRFToken",document.getElementsByName("csrfmiddlewaretoken")[0].value);
+ 	request.send(JSON.stringify(data));  //configure the csrf token
 }

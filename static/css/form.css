@@ -1,3 +1,5 @@
+{% load static %}
+
 html{
 	margin: 0px;
 	height: 100%;

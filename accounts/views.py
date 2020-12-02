@@ -10,15 +10,10 @@ from .utils import token_generator
 from django.utils.dateparse import parse_date
 from django.http import HttpResponse
 from .models import *
-
-# Create your views here.
+import json
 
 
 def Login(request):
-    return render(request, 'accounts/login.html')
-
-
-def post(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -43,6 +38,7 @@ def post(request):
                 email.send(fail_silently=False)
                 messages.success(request, 'Account created for ' + username)
         return redirect('login')
+    return render(request, 'accounts/login.html')
 
 
 def post2(request):
@@ -76,23 +72,25 @@ def verification(request, uid, token):
     return redirect('login')
 
 
-def form(request):
-    return render(request, 'accounts/info_form.html')
-
-
 def info(request):
-    print(request.user.email)
-    customer = Profile()
-    customer.fname = request.POST['first_name']
-    customer.lname = request.POST['last_name']
-    customer.gender = request.POST['gender']
-    customer.religion = request.POST['religion']
-    customer.language = request.POST['language']
-    customer.date = parse_date(request.POST['dob'])
-    customer.user = request.user
-    customer.save()
-    print(request.POST)
-    return HttpResponse('dfdssds')
-
+    if request.method == 'POST':
+        print(request.user.email)
+        temp = json.loads(request.body.decode('utf-8'))
+        print(temp)
+        print('*******************')
+        # print(dir(request))
+        customer = Profile()
+        customer.fname = request.POST['firstname']
+        customer.lname = request.POST['lastname']
+        customer.gender = request.POST['gender']
+        customer.religion = request.POST['religion']
+        customer.language = request.POST['language']
+        customer.date = parse_date(request.POST['dob'])
+        customer.agepref = int(request.POST['agepref'])
+        customer.qualification = request.POST['qualification']
+        customer.user = request.user
+        customer.save()
+        return HttpResponse('dfdssds')
+    return render(request, 'accounts/form.html')
 
 

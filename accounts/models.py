@@ -13,6 +13,8 @@ class Profile(models.Model):
     religion = models.CharField(max_length=50, null=True)
     language = models.CharField(max_length=50, null=True)
     date = models.DateField(max_length=8, null=True)
+    agepref = models.IntegerField(null=True)
+    qualification = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.user.username

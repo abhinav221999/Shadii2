@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 	<head>
 		<title></title>
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-		<link rel="stylesheet" href="form.css" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/form.css' %}" type="text/css">
 	</head>
 	<body>
 		<div id="form_container">
@@ -12,7 +13,8 @@
 				<div id="bar"></div>
 			</div>
 			<br>
-			<form>
+			<form method="post">
+				{% csrf_token %}
 				<div id="inner">
 					<div id="first">
 						<input class="post_inputs" type="text" id="firstname" name="firstname" required placeholder="First name">
@@ -35,12 +37,12 @@
 							<option value="Buddhist">Buddhist</option>
 							<option value="Other">Other</option>
 						</select>
-						<input type="text" name="name" class="post_inputs" id="motherTongue" placeholder="Mother tongue" required>
+						<input type="text" name="language" class="post_inputs" id="motherTongue" placeholder="Mother tongue" required>
 						<input type="text" name="dob" id="dob" class="post_inputs" placeholder="  Date of birth" required onfocus="(this.type = 'date')" onblur="(this.type = 'text')" class="custom_input">
 						<button id="next" type="button" onclick="next_form()"><i class="fas fa-arrow-circle-right"></i> Next</button>	
 					</div>
 					<div id="second">
-						<input type="number" name="age_preference" class="post_inputs" placeholder=" Age preference" min="18" max="100" required>
+						<input type="number" name="agepref" class="post_inputs" placeholder=" Age preference" min="18" max="100" required>
 						<input type="text" name="qualification" class="post_inputs" placeholder=" Qualification" required>
 						<div id="interests">
 							<input type="text" id="interest-list" placeholder="Enter interests" maxlength="30">
@@ -53,6 +55,6 @@
 				</div>
 			</form>
 		</div>
-		<script src="form.js"></script>
+		<script src="{% static 'js/form.js' %}"></script>
 	</body>
 </html>
