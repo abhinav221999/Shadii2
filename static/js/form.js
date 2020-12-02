@@ -67,7 +67,6 @@ function submit_func(){
 	data["interest_list"] = interest_list;
 	console.log(data);
  	var request = new XMLHttpRequest();
- 	request.open("POST", "/info/");
  	request.setRequestHeader("Content-Type", "applicatoin/json");
  	//request.send(JSON.stringify(data));  configure the csrf token
 }
