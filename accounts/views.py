@@ -8,7 +8,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
 from .utils import token_generator
 from django.utils.dateparse import parse_date
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 import json
 
@@ -88,7 +88,17 @@ def info(request):
         customer.qualification = temp['qualification']
         customer.user = request.user
         customer.save()
-        return render(request, 'accounts/temp.html', {})
+        for interest in temp['interest_list']:
+            print(interest)
+            if not Interest.objects.filter(interest=interest).exists():
+                choice = Interest(interest=interest)
+                choice.save()
+                print('**********')
+                customer.interests.add(choice)
+                print('**********')
+        print('out')
+        return HttpResponse('done')
+        return HttpResponseRedirect(reverse('login'))
     return render(request, 'accounts/form.html')
 
 
