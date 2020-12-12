@@ -96,8 +96,10 @@ def info(request):
                 print('**********')
                 customer.interests.add(choice)
                 print('**********')
+            else:
+                choice = Interest.objects.filter(interest=interest)[0].id
+                customer.interests.add(choice)
         print('out')
-        return HttpResponse('done')
         return HttpResponseRedirect(reverse('login'))
     return render(request, 'accounts/form.html')
 
