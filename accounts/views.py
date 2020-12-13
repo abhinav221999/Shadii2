@@ -11,6 +11,7 @@ from django.utils.dateparse import parse_date
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 import json
+from django.contrib.auth.decorators import login_required
 
 
 def Login(request):
@@ -72,6 +73,7 @@ def verification(request, uid, token):
     return redirect('login')
 
 
+@login_required(login_url='login')
 def info(request):
     if request.method == 'POST':
         print(request.user.email)
