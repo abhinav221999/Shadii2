@@ -8,9 +8,10 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
 from .utils import token_generator
 from django.utils.dateparse import parse_date
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 import json
+from django.contrib.auth.decorators import login_required
 
 
 def Login(request):
@@ -72,6 +73,7 @@ def verification(request, uid, token):
     return redirect('login')
 
 
+@login_required(login_url='login')
 def info(request):
     if request.method == 'POST':
         print(request.user.email)
@@ -88,7 +90,19 @@ def info(request):
         customer.qualification = temp['qualification']
         customer.user = request.user
         customer.save()
-        return render(request, 'accounts/temp.html', {})
+        for interest in temp['interest_list']:
+            print(interest)
+            if not Interest.objects.filter(interest=interest).exists():
+                choice = Interest(interest=interest)
+                choice.save()
+                print('**********')
+                customer.interests.add(choice)
+                print('**********')
+            else:
+                choice = Interest.objects.filter(interest=interest)[0].id
+                customer.interests.add(choice)
+        print('out')
+        return HttpResponseRedirect(reverse('login'))
     return render(request, 'accounts/form.html')
 
 
