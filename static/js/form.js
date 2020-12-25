@@ -35,9 +35,10 @@ function performCheck(){
 	return 1;
 }
 
+var child_counter = 0;
 function add_interests(){
-	var children  = document.getElementById("interests").childNodes;
-	if(document.getElementById("interest-list").value != "" && children.length < 5){
+	if(document.getElementById("interest-list").value != "" && child_counter < 3){
+		child_counter++;
 		var wrapper = document.createElement("SPAN");
 		var element = document.createElement("SPAN");
 		var button = document.createElement("SPAN");
@@ -50,6 +51,7 @@ function add_interests(){
 		wrapper.appendChild(element);
 		wrapper.appendChild(button);
 		button.addEventListener("click", () => {
+			child_counter--;
 			button.parentElement.remove();
 		});
 		document.getElementById("interests").appendChild(wrapper);

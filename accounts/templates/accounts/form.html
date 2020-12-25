@@ -42,10 +42,11 @@
 						<button id="next" type="button" onclick="next_form()"><i class="fas fa-arrow-circle-right"></i> Next</button>	
 					</div>
 					<div id="second">
+						<p id="note">Maximum interests possible are 3 and each interest should be 20 characters or less</p>
 						<input type="number" name="agepref" class="post_inputs" placeholder=" Age preference" min="18" max="100" required>
 						<input type="text" name="qualification" class="post_inputs" placeholder=" Qualification" required>
 						<div id="interests">
-							<input type="text" id="interest-list" placeholder="Enter interests" maxlength="30">
+							<input type="text" id="interest-list" placeholder="Enter interests" maxlength="20">
 							<span id="special" onclick="add_interests()"><i class="fas fa-plus-circle"></i></span>
 						</div>
 						<button id="previous" type="button" onclick="previous_form()"><i class="fas fa-arrow-circle-left"></i> Previous</button>
