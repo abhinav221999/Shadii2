@@ -36,7 +36,8 @@ function performCheck(){
 }
 
 function add_interests(){
-	if(document.getElementById("interest-list").value != ""){
+	var children  = document.getElementById("interests").childNodes;
+	if(document.getElementById("interest-list").value != "" && children.length < 5){
 		var wrapper = document.createElement("SPAN");
 		var element = document.createElement("SPAN");
 		var button = document.createElement("SPAN");
