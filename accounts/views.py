@@ -106,3 +106,7 @@ def info(request):
     return render(request, 'accounts/form.html')
 
 
+
+@login_required(login_url="login")
+def home(request):
+    return render(request, 'accounts/home.html', {})
