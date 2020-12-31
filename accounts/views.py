@@ -12,8 +12,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 import json
 from django.contrib.auth.decorators import login_required
+from .decorators import *
 
 
+@unauthenticated_user
 def Login(request):
     if request.user.is_authenticated:
         if hasattr(request.user, 'profile'):
@@ -54,7 +56,7 @@ def post2(request):
     if user is not None:
         login(request, user)
         if hasattr(user, 'profile'):
-            return redirect('qwer')
+            return redirect('home')
         else:
             return redirect('info')
     else:
@@ -66,15 +68,12 @@ def verification(request, uid, token):
 
     id = force_str(urlsafe_base64_decode(uid))
     user = User.objects.get(pk=id)
-    # print(user.username)
-
     if not token_generator.check_token(user, token):
         return HttpResponse('account already activated')
 
     if user.is_active:
         return redirect('login')
     user.is_active = True
-    # print('user activated')
     user.save()
 
     messages.success(request, 'Account activated successfully')
@@ -82,11 +81,10 @@ def verification(request, uid, token):
 
 
 @login_required(login_url='login')
+@profile_not_exists
 def info(request):
     if request.method == 'POST':
-        # print(request.user.email)
         temp = json.loads(request.body.decode('utf-8'))
-        # print(temp)
         customer = Profile()
         customer.fname = temp['firstname']
         customer.lname = temp['lastname']
@@ -99,22 +97,18 @@ def info(request):
         customer.user = request.user
         customer.save()
         for interest in temp['interest_list']:
-            # print(interest)
             if not Interest.objects.filter(interest=interest).exists():
                 choice = Interest(interest=interest)
                 choice.save()
-                # print('**********')
                 customer.interests.add(choice)
-                # print('**********')
             else:
                 choice = Interest.objects.filter(interest=interest)[0].id
                 customer.interests.add(choice)
-        # print('out')
         return HttpResponseRedirect(reverse('login'))
     return render(request, 'accounts/form.html')
 
 
-
 @login_required(login_url="login")
 def home(request):
+
     return render(request, 'accounts/home.html', {})
