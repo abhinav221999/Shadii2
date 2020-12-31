@@ -22,11 +22,20 @@ class Profile(models.Model):
     date = models.DateField(max_length=8, null=True)
     agepref = models.IntegerField(null=True)
     qualification = models.CharField(max_length=50, null=True)
-    interests = models.ManyToManyField(Interest, null=True)
+    interests = models.ManyToManyField(Interest, blank=True)
+    friends = models.ManyToManyField(User, related_name='friends', blank=True)
 
     def __str__(self):
         return self.fname
 
 
+Status_choices = (
+    ('sent', 'sent'),
+    ('accepted', 'accepted'),
+)
 
 
+class Relationship(models.Model):
+    sender = models.ForeignKey(Profile, related_name='sender', on_delete=models.CASCADE)
+    receiver = models.ForeignKey(Profile, related_name='receiver', on_delete=models.CASCADE)
+    status = models.CharField(max_length=8, choices=Status_choices)

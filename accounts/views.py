@@ -15,6 +15,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def Login(request):
+    if request.user.is_authenticated:
+        if hasattr(request.user, 'profile'):
+            return HttpResponse('login successful')
+        else:
+            return redirect('info')
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -48,7 +53,10 @@ def post2(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponse('login successful')
+        if hasattr(user, 'profile'):
+            return redirect('qwer')
+        else:
+            return redirect('info')
     else:
         messages.info(request, 'Username or Password is incorrect')
         return HttpResponse('login failed')
@@ -58,7 +66,7 @@ def verification(request, uid, token):
 
     id = force_str(urlsafe_base64_decode(uid))
     user = User.objects.get(pk=id)
-    print(user.username)
+    # print(user.username)
 
     if not token_generator.check_token(user, token):
         return HttpResponse('account already activated')
@@ -66,7 +74,7 @@ def verification(request, uid, token):
     if user.is_active:
         return redirect('login')
     user.is_active = True
-    print('user activated')
+    # print('user activated')
     user.save()
 
     messages.success(request, 'Account activated successfully')
@@ -76,9 +84,9 @@ def verification(request, uid, token):
 @login_required(login_url='login')
 def info(request):
     if request.method == 'POST':
-        print(request.user.email)
+        # print(request.user.email)
         temp = json.loads(request.body.decode('utf-8'))
-        print(temp)
+        # print(temp)
         customer = Profile()
         customer.fname = temp['firstname']
         customer.lname = temp['lastname']
@@ -91,17 +99,17 @@ def info(request):
         customer.user = request.user
         customer.save()
         for interest in temp['interest_list']:
-            print(interest)
+            # print(interest)
             if not Interest.objects.filter(interest=interest).exists():
                 choice = Interest(interest=interest)
                 choice.save()
-                print('**********')
+                # print('**********')
                 customer.interests.add(choice)
-                print('**********')
+                # print('**********')
             else:
                 choice = Interest.objects.filter(interest=interest)[0].id
                 customer.interests.add(choice)
-        print('out')
+        # print('out')
         return HttpResponseRedirect(reverse('login'))
     return render(request, 'accounts/form.html')
 
