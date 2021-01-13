@@ -110,5 +110,8 @@ def info(request):
 
 @login_required(login_url="login")
 def home(request):
-
-    return render(request, 'accounts/home.html', {})
+    suggestions = request.user.profile.suggestions.all()
+    context = {
+        'suggestions': suggestions
+    }
+    return render(request, 'accounts/home.html', context)
