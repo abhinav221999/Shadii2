@@ -5,23 +5,29 @@ html{
 }
 body{
 	margin: 0px;
-	font-family: Montserrat;
+	font-family: sans-serif;
+    font-weight: bold;
 }
 #wrapper{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
 	line-height: 50px;
 	height: 50px;
 	width: 100%;
 	padding: 5px 0px 5px 0px;
 	background-color: rgb(50, 50, 50);
-	color: black;
+	color: white;
 	font-size: 15px;
 	text-align: right;
+    box-shadow: 0px 0px 10px black;
 }
 .navitems{
 	margin-right: 10px;
-	padding: 5px 10px 5px 10px;
-	border-radius: 15px;
-	font-weight: medium;
+	padding: 10px 10px 10px 10px;
+	border-radius: 20px;
+	font-weight: bold;
 	background-color: #009ACD;
 }
 .navitems:hover{
@@ -58,17 +64,68 @@ body{
 	margin-left: 20px;
 }
 a{
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 .prompt{
 	position: relative;
-	top: -13px;
-	right: -5px;
+	top: -15px;
+	right: -7px;
 	display: inline-block;
 	height: 10px;
 	width: 10px;
 	border-radius: 5px;
 	background-color: white;
 
+}
+
+#find{
+    background-color: rgba(0,0,0,0);
+    color: white;
+    border: none;
+    width: 300px;
+    font-size: 15px;
+}
+::placeholder{
+    color: white;
+    font-weight: bolder;
+}
+:-ms-input-placeholder {
+    font-weight: bolder;
+    color: white;
+}
+::-m-input-placeholder {
+    color: white;
+    font-weight: bolder;
+}
+
+.button2 {
+    font-weight: bolder;
+    background-color: white;
+    color: #009ACD;
+    border: none;
+    border-radius: 20px;
+    padding: 2px 10px 3px 10px;
+    cursor: pointer;
+}
+i{
+    margin-right: 5px;
+}
+.navitems_search {
+    margin-right: 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #009ACD;
+}
+
+@media screen and (max-width: 900px){
+    #find{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 1200px){
+    #find{
+        width: 150px;
+    }
 }

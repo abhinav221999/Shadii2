@@ -1,0 +1,49 @@
+body{
+    font-family: sans-serif;
+}
+.friends_slider {
+    margin-top: 60px;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    overflow: auto;
+    color: white;
+}
+
+.friends_slider::-webkit-scrollbar {
+    height: 3px;
+}
+
+.friends_slider::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+.dummy {
+    flex: 1 0 auto;
+    text-align: center;
+    background-color: black;
+    width: 150px;
+    border-radius: 11px;
+    margin: 20px 40px 20px 40px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 10px black;
+    transition: 0.2s;
+}
+
+img {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.message_button{
+    font-weight: bolder;
+    background-image: linear-gradient(to top right, blue, violet);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
+.dummy:hover{
+    transform: scale(1.05);
+}
+
