@@ -4,7 +4,7 @@ body{
 .friends_slider {
     background-color: rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
-    margin: 80px 20px 0px 20px;
+    margin: 80px 0px 0px 0px;
     display: flex;
     align-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -28,13 +28,13 @@ body{
     width: 150px;
     margin: 20px 40px 20px 40px;
     padding-bottom: 10px;
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
     transition: 0.2s;
 }
 
-.message_button{
+.message_button {
     font-weight: bolder;
-    background-image: linear-gradient(to top right, blue, violet);
+    background-color: #009ACD;
     color: white;
     border: none;
     border-radius: 20px;
@@ -55,23 +55,30 @@ body{
 }
 .dummy_post{
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
     height: 400px;
-    width: 500px;
+    width: 80%;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 .dummy_friend {
     margin-top: 20px;
-    margin-right: 40px;
-    width: 350px;
+    width: 80%;
     height: 100px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     background-color: white;
 }
 .friends {
     display: flex;
+    margin-right: 5%;
+    width: 30%;
     flex-direction: column;
+    align-items: center;
+}
+.posts{
+    width: 60%;
+    margin-left: 5%;
 }
 .friends::-webkit-scrollbar {
     height: 3px;
@@ -88,10 +95,37 @@ body{
     }
     .friends {
         flex-direction: row;
+        width: 100%;
         overflow: auto;
+    }
+    .posts{
+        width:80%;
+        margin: 0;
     }
     .dummy_friend {
         flex: 1 0 auto;
-        margin-bottom: 20px;
+        width: 150px;
+        height: 300px;
+        margin: 20px 0px 20px 20px;
+    }
+}
+@media screen and (max-device-width: 800px){
+    .inner_wrapper {
+        flex-direction: column-reverse;
+    }
+    .friends {
+        width: 100%;
+        flex-direction: row;
+        overflow: auto;
+    }
+    .posts{
+        width: 100%;
+        margin: 0;
+    }
+    .dummy_friend {
+        flex: 1 0 auto;
+        width: 200px;
+        height: 250px;
+        margin: 20px 0px 20px 20px;
     }
 }
