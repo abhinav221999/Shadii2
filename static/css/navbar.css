@@ -34,14 +34,16 @@ body{
 	cursor: pointer;
 	box-shadow: 0px 0px 10px #009ACD, 0px 0px 5px white;
 }
-#logo{
-	position: absolute;
-	top: 5px;
-	left: 0px;
-	font-size: 30px;
-	padding: 0px 10px 0px 10px;
-	margin-left: 20px;
-	margin-right: 20px;
+#logo {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    font-size: 35px;
+    padding: 0px 10px 0px 10px;
+    margin-left: 20px;
+    font-weight: bolder;
+    margin-right: 20px;
+    font-family: Courgette;
 }
 #special{
 	font-size: 30px;
