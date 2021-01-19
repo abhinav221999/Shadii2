@@ -90,22 +90,25 @@ body{
 }
 
 @media screen and (max-width: 800px){
-    .inner_wrapper{
+    .inner_wrapper {
         flex-direction: column-reverse;
     }
+
     .friends {
-        flex-direction: row;
         width: 100%;
+        flex-direction: row;
         overflow: auto;
     }
-    .posts{
-        width:80%;
+
+    .posts {
+        width: 100%;
         margin: 0;
     }
+
     .dummy_friend {
         flex: 1 0 auto;
-        width: 150px;
-        height: 300px;
+        width: 200px;
+        height: 250px;
         margin: 20px 0px 20px 20px;
     }
 }
