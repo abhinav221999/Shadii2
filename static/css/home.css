@@ -57,9 +57,9 @@ button {
     margin-top: 20px;
     margin-left: 10%;
     margin-right: 10%;
-    height: 400px;
     width: 80%;
     background-color: white;
+    overflow: hidden;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 .dummy_friend {
@@ -75,11 +75,36 @@ button {
     width: 30%;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+}
+.friends::-webkit-scrollbar {
+    width: 3px;
+}
+
+.friends::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
 }
 .friend_image{
     float: left;
     width: 50%;
     height: 100%;
+}
+.comment-like-bar{
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 90%;
+    margin: 5px auto 10px auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.comment-like-bar-item{
+    padding: 10px;
 }
 .description {
     float: right;
@@ -100,6 +125,7 @@ button {
     margin-top: 10%;
     margin-bottom: 10%;
 }
+
 .posts{
     width: 60%;
     margin-left: 5%;
@@ -111,17 +137,23 @@ button {
 .friends::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
+} 
+@media screen and (min-width: 800px){
+    .friends {
+        position: sticky;
+        top: 0px;
+    }
 }
-
 @media screen and (max-width: 800px){
     .inner_wrapper {
         flex-direction: column-reverse;
     }
-
     .friends {
         width: 100%;
         flex-direction: row;
         overflow: auto;
+        position: static;
+        height: 300px;
     }
 
     .posts {
@@ -146,6 +178,12 @@ button {
         text-align: center;
     }
 }
+@media screen and (min-device-width: 800px){
+    .friends{
+        position: sticky;
+        top: 0px;
+    }
+}
 @media screen and (max-device-width: 800px){
     .inner_wrapper {
         flex-direction: column-reverse;
@@ -154,6 +192,8 @@ button {
         width: 100%;
         flex-direction: row;
         overflow: auto;
+        position: static;
+        height: 300px;
     }
     .posts{
         width: 100%;
