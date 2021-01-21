@@ -23,6 +23,7 @@ class Profile(models.Model):
     interests = models.ManyToManyField(Interest, blank=True)
     friends = models.ManyToManyField(User, related_name='friends', blank=True)
     suggestions = models.ManyToManyField("self", related_name='suggestions', blank=True)
+    avatar = models.ImageField(default='static/avatar.png', upload_to='avatars/', blank=True)
 
     def __str__(self):
         return self.fname
