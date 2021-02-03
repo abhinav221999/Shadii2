@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" type="text/css" />
+</head>
+    <body style="background-image: url({% static 'image/dummy_background.jpg' %})">
+        {% include 'accounts/temp_navbar.html'%}
+        <div class="upper_section">
+            <div class="left_section">
+                <div class="profile_image">
+                    <img src="{% static 'image/dummy_image.jpg' %}" height="200" width="200" />
+                    <div id="change">&nbsp<i class="fas fa-camera"></i></div>
+                </div>
+                <div class="profile_about">
+                    <h1>Name</h1>
+                    <h2>Bio:</h2>
+                    <p>a fadfhadslfasdfasdfsdfsdfdsfdsfdsfsf</p>
+                </div>
+            </div>
+            <div class="right_section"></div>
+        </div>
+        <div class="lower_section"></div>
+    </body>
+</html>
