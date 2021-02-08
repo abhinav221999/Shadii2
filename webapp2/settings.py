@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'chat',
+    'channels',
 ]
 
 SITE_ID = 1
@@ -77,6 +79,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webapp2.wsgi.application'
+ASGI_APPLICATION = 'webapp2.routing.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 
 # Database
