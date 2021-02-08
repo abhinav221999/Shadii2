@@ -1,19 +1,22 @@
 {% load static %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 <div id="wrapper">
-	<div>
-		<a href="#"><span id="logo">Shaadi</span></a>
-        <span id="search" class="navitems_search"><label for="find"><i class="fas fa-search"></i></label><input id="find" type="text" placeholder=" Search ..."/><button class="button2">GO</button></span>
-		<a href="#"><span class="navitems"><i class="fas fa-home"></i> Home</span></a>
-		<a href="#"><span class="navitems"><i class="fas fa-bell"></i> Notifications<span class="prompt"></span></span></a>
-		<a href="#"><span class="navitems"><i class="fab fa-font-awesome-flag"></i> Messages<span class="prompt"></span></span></a>
-		<a href="#"><span class="navitems"><i class="fab fa-font-awesome-flag"></i> Profile</span></a>
-		<span id="special"><i class="fas fa-bars"></i></span>
-	</div>
-	<div id="mobile_view">
-		<a href="#"><div class="mobile_items"> <span class= "mobile_inner">Home</span></div></a>
-		<a href="#"><div class="mobile_items"> <span class= "mobile_inner">Notifications</span></div></a>
-		<a href="#"><div class="mobile_items"> <span class= "mobile_inner">Messages</span></div></a>
-		<a href="#"><div class="mobile_items"> <span class= "mobile_inner">Profile</span></div></a>
-	</div>
+    <div>
+        <a href="#"><span id="logo">Shaadi</span></a>
+        <span id="search" class="navitems_search"><label for="find"><i class="fas fa-search"></i></label><input id="find" type="text" placeholder=" Search ..." /><button class="button2">GO</button></span>
+        <a href="#"><span class="navitems"><i class="fas fa-home"></i> Home</span></a>
+        <a href="#"><span class="navitems"><i class="fas fa-bell"></i> Notifications<span class="prompt"></span></span></a>
+        <a href="#"><span class="navitems"><i class="fab fa-font-awesome-flag"></i> Messages<span class="prompt"></span></span></a>
+        <a href="#"><span class="navitems"><i class="fab fa-font-awesome-flag"></i> Profile</span></a>
+        <span id="special"><i class="fas fa-bars"></i></span>
+    </div>
+    <div id="mobile_view">
+        <a href="#"><div class="mobile_items"> <span class="mobile_inner">Home</span></div></a>
+        <a href="#"><div class="mobile_items"> <span class="mobile_inner">Notifications</span></div></a>
+        <a href="#"><div class="mobile_items"> <span class="mobile_inner">Messages</span></div></a>
+        <a href="#"><div class="mobile_items"> <span class="mobile_inner">Profile</span></div></a>
+    </div>
 </div>
 <script src="{% static 'js/navbar.js' %}"></script>
